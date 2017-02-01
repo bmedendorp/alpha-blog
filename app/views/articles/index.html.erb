@@ -1,0 +1,18 @@
+<h1>Article Listing</h1>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Action</th>
+  </tr>
+<% @articles.each do |article| %>
+  <tr>
+    <td class="title"><%= link_to article.title,  article_path(article) %></td>
+    <td class="description"><%= article.description %></td>
+    <td class="action"><%= link_to 'Edit', edit_article_path(article) %> | Delete</td>
+  </tr>
+<%end%>
+</table>
+<p>
+ <%= link_to 'Create New Article', new_article_path %>
+</p>
