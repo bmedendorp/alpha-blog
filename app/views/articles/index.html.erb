@@ -3,14 +3,20 @@
   <tr>
     <th>Title</th>
     <th>Description</th>
-    <th>Action</th>
   </tr>
+<% line_count = 0 %>
 <% @articles.each do |article| %>
-  <tr>
+  <% if line_count.odd? %>
+    <tr class="odd">
+  <% else %>
+    <tr class="even">
+  <% end %>
     <td class="title"><%= link_to article.title,  article_path(article) %></td>
-    <td class="description"><%= article.description %></td>
-    <td class="action"><%= link_to 'Edit', edit_article_path(article) %> | Delete</td>
+    <td class="description"><%= link_to article.description, article_path(article) %></td>
+    <td><%= link_to 'Edit', edit_article_path(article) %></td>
+    <td><%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure?"} %></td>
   </tr>
+  <% line_count += 1 %>
 <%end%>
 </table>
 <p>
