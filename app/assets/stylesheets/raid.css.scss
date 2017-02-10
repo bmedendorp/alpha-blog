@@ -1,3 +1,9 @@
+$brand-primary: #95C5D4;
+
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 @charset "utf-8";
 body {
 	background-image: image-url("fantasy-castle-3d-art-castle-fantasy-flower-park-rose.jpeg");
@@ -59,7 +65,7 @@ nav a {
 	margin-left: auto;
 	margin-right: auto;
 	padding-top: 2px;
-	padding-bottom: 2px;
+	padding-bottom: 20px;
 	padding-right: 20px;
 	padding-left: 20px;
 }
@@ -107,10 +113,24 @@ table tr th {
 table .odd {
 	background-color: rgba(128,128,128,1.00);
 }
-
-
-// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
-
+.center{
+	text-align: center;
+}
+#footer{
+	background-color: #A9C7D0;
+	padding-top: 1px;
+	padding-right: 25px;
+	padding-bottom: 1px;
+	padding-left: 25px;
+	margin-top: 10px;
+	margin-botom: 10px;
+	font-size: small;
+	border-radius: 25px;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+#footer a{
+	color: $text-color;
+	text-decoration: none;
+}
