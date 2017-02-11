@@ -1,5 +1,7 @@
 $brand-primary: #95C5D4;
+$btn-primary-bg: #337AB7;
 $table-bg-hover: #AAA;
+$well-bg: #CCC;
 
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
@@ -144,4 +146,24 @@ table .odd {
 	background-color: #888;
 	box-shadow: 10px 10px 10px $gray-dark;
 	padding-bottom: 10px;
+}
+.article-title a{
+	color: black;
+	font-size: 1.7em;
+	font-weight: bold;
+}
+.article-title {
+	border-bottom: 1px solid $gray-lighter;
+	padding-bottom: 20px;
+}
+.article-body {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+	font-size: 1.2em
+}
+.creation-info {
+	margin-top: 20px;
+	padding-right: 20px;
 }
