@@ -6,6 +6,10 @@ git_source(:github) do |repo_name|
 end
 
 
+# Explicitly call for hashie 3.4.4 to prevent conflicts with omniauth
+gem 'hashie', '~> 3.4.4'
+# Use Omniauth for fitbit API calls
+gem 'omniauth-fitbit'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 # Use Puma as the app server
@@ -39,6 +43,8 @@ group :development, :test do
   gem 'mysql2', '>= 0.3.18', '< 0.5'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  # Use figaro for local ENV variables
+  gem 'figaro'
 end
 
 group :development do
