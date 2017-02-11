@@ -1,6 +1,5 @@
 <h1>Sessions#create</h1>
 <p>Find me in app/views/sessions/create.html.erb</p>
-<p>Provider: <%= "#{@auth_hash['provider']}" %></p>
-<p>UID: <%= "#{@auth_hash['uid']}" %></p>
-<p>Credentials: <%= "#{@auth_hash['credentials']}" %></p>
-<p><%= @auth_hash.inspect %></p>
+<p>Today's Steps: <%= @todays_steps %></p>
+<p>Yesterday's Steps: <%= @yesterdays_steps %></p>
+<pre><%= JSON.pretty_generate(@info) %></pre>

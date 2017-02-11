@@ -6,10 +6,6 @@ git_source(:github) do |repo_name|
 end
 
 
-# Explicitly call for hashie 3.4.4 to prevent conflicts with omniauth
-gem 'hashie', '~> 3.4.4'
-# Use Omniauth for fitbit API calls
-gem 'omniauth-fitbit'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 # Use Puma as the app server
@@ -37,6 +33,13 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# Explicitly call for hashie 3.4.4 to prevent conflicts with omniauth
+gem 'hashie', '~> 3.4.4'
+# Use Omniauth for fitbit authorization
+gem 'omniauth-fitbit'
+# Use Fitgem_Oauth2 for fitbit API calls
+gem 'fitgem_oauth2'
 
 group :development, :test do
   # Use mysql as the database for Active Record
