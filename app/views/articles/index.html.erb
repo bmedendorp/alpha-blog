@@ -1,36 +1,6 @@
 <%= render 'shared/title', title: 'Article Listing' %>
 
-<% @articles.each do |article| %>
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-      <div class="well well-lg">
-        <div class="article-title text-center">
-          <%= link_to article.title, article_path(article) %>
-        </div>
-        <div class="article-body">
-          <%= truncate(article.description, length: 250) %>
-          <div class="creation-info text-right">
-            <small>
-              Created by: <%= article.user.username if article.user %>
-                <%= time_ago_in_words(article.created_at) %>
-                <% if article.updated_at && article.updated_at != article.created_at %>
-                  ago, last edited <%= time_ago_in_words(article.updated_at) %>
-                <% end %>
-                ago
-            </small>
-          </div>
-        </div>
-        <div class="article-actions">
-          <%= link_to 'Edit This Article', edit_article_path(article), 
-                              class: "btn btn-primary" %>
-          <%= link_to 'Delete This Article', article_path(article), method: :delete,
-                                data: {confirm: "Are you sure you want to delete this article?"}, 
-                                class: "btn btn-danger" %>
-        </div>
-      </div>
-    </div>
-  </div>
-<%end%>
+<%= render 'article', articles: @articles %>
 
 <div class="text-center">
  <%= link_to 'Create New Article', new_article_path, class: "btn btn-primary" %>

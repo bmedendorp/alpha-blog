@@ -1,0 +1,8 @@
+<%= render 'shared/title', title: "Welcome to #{@user.username}'s Page" %>
+<div class="row">
+  <div class="col-xs-4 col-xs-offset-4 text-center">
+    <%= gravatar_for @user, size: 150 %>
+  </div>
+</div>
+<h4 class="text-center"><%= @user.username %>'s Articles</h4>
+<%= render 'articles/article', articles: @user.articles %>
