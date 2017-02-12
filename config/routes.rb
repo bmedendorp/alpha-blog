@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :articles
 
-  get   '/login', :to => 'sessions#new', :as => :login
-  get '/auth/:provider/callback', :to => 'sessions#create'
-  get '/auth/failure', :to => 'sessions#failure'
+  get '/auth/login', :to => 'authorizations#new'
+  get '/auth/:provider/callback', :to => 'authorizations#create'
+  get '/auth/failure', :to => 'authorizations#failure'
 end

@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class AuthorizationsController < ApplicationController
   def new
   end
 
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
   end
 
   private
-  
+
     # Return the total steps taken AFTER (since) the specified date
     def total_steps_since_date(client, date)
       date = Date.parse(date) + 1
