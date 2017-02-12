@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get '/auth/login', :to => 'authorizations#new'
   get '/auth/:provider/callback', :to => 'authorizations#create'
   get '/auth/failure', :to => 'authorizations#failure'
+  get '/auth/:id/steps', :to => 'authorizations#steps'
 end
