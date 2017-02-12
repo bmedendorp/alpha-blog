@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false },
                     length: { maximum: 105 },
                     format: { with: VALID_EMAIL_REGEX }
-  validates :password, confirmation: true
+  validates :password,
+            presence: true,
+            confirmation: true,
+            if: lambda{ new_record? || !password.nil? }
   has_secure_password
 end
