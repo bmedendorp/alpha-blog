@@ -8,7 +8,11 @@ class AuthorizationsController < ApplicationController
     if authorization.save
       @provider = authorization.provider
     else
-      redirect_to auth_failure_path
+      if authorization.errors.added? :auth_user_id, :taken
+        render :failure
+      else
+        redirect_to failure_path
+      end
     end
   end
 
@@ -19,7 +23,8 @@ class AuthorizationsController < ApplicationController
     authorization = Authorization.first
     refresh_token authorization
     client = create_client authorization.access_token
-    @total_steps = total_steps_since_date(client, '2017-02-09');
+    reply = { total_steps: total_steps_since_date(client, '2017-02-08') };
+    render :json => reply.to_json
   end
 
   private
