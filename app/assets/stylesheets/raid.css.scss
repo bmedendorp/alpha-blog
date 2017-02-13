@@ -135,7 +135,6 @@ table .odd {
 	text-decoration: none;
 }
 .article-actions{
-	border-top: 1px solid $gray-lighter;
 	padding-top: 20px;
 }
 .article-actions .btn{
@@ -153,17 +152,32 @@ table .odd {
 	font-weight: bold;
 }
 .article-title {
-	border-bottom: 1px solid $gray-lighter;
-	padding-bottom: 20px;
 }
 .article-body {
+	border-top: 1px solid $gray-lighter;
+	border-bottom: 1px solid $gray-lighter;
+	margin-top: 20px;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	padding-right: 10px;
 	padding-left: 10px;
 	font-size: 1.2em
 }
+.article-header{
+	padding-top: 25px;
+	font-weight: bold;
+}
+.article-author{
+	padding-top: 5px;
+	padding-left: 20px;
+}
 .creation-info {
 	margin-top: 20px;
 	padding-right: 20px;
+}
+.underline {
+	border-bottom: 1px solid $gray-lighter;
+}
+.drop {
+	margin-top: 20px;
 }

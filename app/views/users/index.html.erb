@@ -1,0 +1,14 @@
+<%= render 'shared/title', title: 'Users Lising' %>
+<% @users.each do |user| %>
+  <div class="row">
+    <div class="well col-xs-4 col-xs-offset-4">
+      <ul class="list-unstyled text-center">
+        <li><%= link_to gravatar_for(user), user_path(user) %></li>
+        <li class="article-title">
+          <%= link_to user.username, user_path(user) %>
+        </li>
+        <li><small><%= pluralize(user.articles.count, "article") if user.articles.any? %></small></li>
+      </ul>
+    </div>
+  </div>
+ <% end %>

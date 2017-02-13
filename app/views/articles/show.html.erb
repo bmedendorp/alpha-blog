@@ -1,7 +1,20 @@
-<h1 class="text-center"><%= @article.title %></h1>
-<hr>
+<div class="row underline">
+  <div class="col-xs-2 article-author">
+    <% if @article.user %>
+      <ul class="list-unstyled text-center">
+        <li><%= link_to gravatar_for(@article.user), user_path(@article.user) %></li>
+        <li class="article-title">
+          <%= link_to @article.user.username, user_path(@article.user) %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+  <div class="col-xs-8">
+    <h1 class="text-center article-header"><%= @article.title %></h1>
+  </div>
+</div>
 <div class="row">
-  <div class="well col-xs-8 col-xs-offset-2">
+  <div class="well col-xs-10 col-xs-offset-1 drop">
     <h4 class="text-center"><%= @article.description %></h4>
   </div>
 </div>
