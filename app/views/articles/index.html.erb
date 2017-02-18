@@ -1,6 +1,12 @@
 <%= render 'shared/title', title: 'Article Listing' %>
 
+<div class="text-center">
+  <%= will_paginate %>
+</div>
 <%= render 'article', articles: @articles %>
+<div class="text-center">
+  <%= will_paginate %>
+</div>
 
 <div class="text-center">
  <%= link_to 'Create New Article', new_article_path, class: "btn btn-primary" %>
