@@ -1,8 +1,25 @@
-<h1>Showing Article Details</h1>
-
-<p><strong>Title: </strong><%= @article.title %></p>
-<p><strong>Description: </strong><%= @article.description %></p>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Delete', article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %> |
-<%= link_to 'Return to articles listing', articles_path %>
+<div class="p-4 sm:px-6 lg:px-8 max-w-7xl m-auto">
+    <div class="px-4 sm:px-0">
+      <h3 class="text-base font-semibold leading-7 text-gray-900">Showing Article Details</h3>
+    </div>
+    <div class="mt-6 border-t border-gray-100">
+      <dl class="divide-y divide-gray-100">
+        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <dt class="text-sm font-medium leading-6 text-gray-900">Title</dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @article.title %></dd>
+        </div>
+        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <dt class="text-sm font-medium leading-6 text-gray-900">Description</dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @article.description %></dd>
+        </div>
+    </div>
+    <div class="flex flex-row justify-between border-t border-gray-100">
+      <div class="py-10 text-indigo-600 hover:text-indigo-900">
+        <%= link_to '<< Return to articles listing', articles_path %>
+      </div>
+      <div class="py-3 text-indigo-600">
+        <span class="hover:text-indigo-900"><%= link_to 'Edit', edit_article_path(@article) %></span> |
+        <span class="hover:text-indigo-900"><%= link_to 'Delete', article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></span>
+      </div>
+    </div>
+</div>
