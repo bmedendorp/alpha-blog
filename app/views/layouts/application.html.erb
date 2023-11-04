@@ -11,9 +11,14 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-zinc-300">
-    <%= render 'layouts/navbar' %>
-    <%= render 'layouts/messages' %>
-    <%= yield %>
+  <body class="bg-zinc-300 flex flex-col justify-between h-screen">
+    <div>
+      <%= render 'layouts/navbar' %>
+      <%= render 'layouts/messages' %>
+      <%= yield %>
+    </div>
+    <div>
+      <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>
