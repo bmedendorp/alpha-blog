@@ -1,25 +1,30 @@
 <div class="p-4 sm:px-6 lg:px-8 max-w-7xl m-auto">
-    <div class="px-4 sm:px-0">
-      <h3 class="text-base font-semibold leading-7 text-gray-900">Showing Article Details</h3>
-    </div>
-    <div class="mt-6 border-t border-gray-100">
-      <dl class="divide-y divide-gray-100">
-        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-          <dt class="text-sm font-medium leading-6 text-gray-900">Title</dt>
-          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @article.title %></dd>
-        </div>
-        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-          <dt class="text-sm font-medium leading-6 text-gray-900">Description</dt>
-          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @article.description %></dd>
-        </div>
-    </div>
-    <div class="flex flex-row justify-between border-t border-gray-100">
-      <div class="py-10 text-indigo-600 hover:text-indigo-900">
-        <%= link_to '<< Return to articles listing', articles_path %>
+  <div class="px-4 sm:px-0 pt-6 pb-12">
+    <h3 class="text-xl font-semibold leading-7 text-gray-500">Showing Article</h3>
+  </div>
+
+  <div class="max-w-4xl m-auto">
+    <div class="p-4 rounded-3xl shadow-xl bg-slate-400">
+      <div class="px-4 py-3 sm:px-0 text-center text-4xl font-semibold text-slate-800">
+        <%= @article.title %>
       </div>
-      <div class="py-3 text-indigo-600">
+      <div class="text-md pb-1 font-medium text-center text-slate-700">
+        by <%= @article.user.username %>
+      </div>
+      <div class="text-sm pb-2 text-center text-slate-600">
+        created <%= time_ago_in_words(@article.created_at) %> ago | updated <%= time_ago_in_words(@article.updated_at) %> ago
+      </div>
+      <div class="m-auto max-w-xl border-b border-slate-500"></div>
+      <div class="text-lg p-6 font-medium text-left text-slate-700">
+        <%= @article.description %>
+      </div>
+      <div class="my-2 mx-6 text-indigo-600 text-right">
         <span class="hover:text-indigo-900"><%= link_to 'Edit', edit_article_path(@article) %></span> |
         <span class="hover:text-indigo-900"><%= link_to 'Delete', article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></span>
       </div>
     </div>
+    <div class="px-0 py-8 text-left text-indigo-600 hover:text-indigo-900">
+      <%= link_to '<< Return to articles listing', articles_path %>
+    </div>
+  </div>
 </div>
