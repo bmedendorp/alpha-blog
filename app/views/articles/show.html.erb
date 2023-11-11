@@ -1,10 +1,10 @@
 <div class="p-4 sm:px-6 lg:px-8 max-w-7xl m-auto">
-  <div class="px-4 sm:px-0 pt-6 pb-12">
-    <h3 class="text-xl font-semibold leading-7 text-gray-500">Showing Article</h3>
+  <div class="px-4 sm:px-0 my-6">
+    <h3 class="text-3xl font-semibold leading-7 text-gray-500">Showing Article</h3>
   </div>
 
   <div class="max-w-4xl m-auto">
-    <%= render 'article', line_clamp: "line-clamp-none" %>
+    <%= render 'article', article: @article, links: true %>
     <div class="px-0 py-8 text-left text-indigo-600 hover:text-indigo-900">
       <%= link_to '<< Return to articles listing', articles_path %>
     </div>

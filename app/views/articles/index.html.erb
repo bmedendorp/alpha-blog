@@ -1,45 +1,20 @@
 <div class="p-4 sm:px-6 lg:px-8 max-w-7xl m-auto">
-  <div class="sm:flex sm:items-center">
+  <div class="sm:flex sm:items-center my-6">
     <div class="sm:flex-auto">
-      <h1 class="text-base font-semibold leading-6 text-gray-900">Articles</h1>
-      <p class="mt-2 text-sm text-gray-700">A list of all articles in blog</p>
+      <h3 class="text-3xl font-semibold leading-7 text-gray-500">Articles</h3>
+      <p class="mt-1 ml-4 text-base text-gray-700">A list of all articles in blog</p>
     </div>
     <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
       <%= button_to "New Article", new_article_path, :class => "block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", :method => :get %>
     </div>
   </div>
-  <div class="mt-8 flow-root">
-    <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-      <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-        <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
-          <table class="w-full divide-y divide-gray-300 table-fixed">
-            <thead class="bg-gray-50">
-              <tr>
-                <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6 w-1/5">Title</th>
-                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 w-1/6">Author</th>
-                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Description</th>
-                <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6 w-48">
-                  <span class="sr-only">Actions</span>
-                </th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-200 bg-white">
-              <% @articles.each do |article| %>
-                <tr>
-                  <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 truncate"><%= article.title %></td>
-                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 truncate"><%= article.user.username %></td>
-                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 truncate"><%= article.description %></td>
-                  <td class="flex flex-row justify-between">
-                    <div class="relative whitespace-nowrap py-4 text-right text-sm font-medium sm:pr-6"><%= link_to 'Show', article_path(article), :class => "text-indigo-600 hover:text-indigo-900" %></div>
-                    <div class="relative whitespace-nowrap py-4 text-right text-sm font-medium sm:pr-6"><%= link_to 'Edit', edit_article_path(article), :class => "text-indigo-600 hover:text-indigo-900" %></div>
-                    <div class="relative whitespace-nowrap py-4 text-right text-sm font-medium sm:pr-6"><%= link_to 'Delete', article_path(article), :class => "text-indigo-600 hover:text-indigo-900", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></div>
-                  </td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
+
+  <% @articles.each do |article| %>
+    <a href=<%= article_path article %>>
+      <div class="my-4 max-w-4xl m-auto">
+        <%= render 'article', article: article, line_clamp: "line-clamp-1" %>
       </div>
-    </div>
-  </div>
+    </a>
+  <% end %>
+
 </div>
