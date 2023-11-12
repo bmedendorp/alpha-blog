@@ -16,14 +16,21 @@
   <div class="flex-1 text-lg p-6 font-medium text-left text-slate-700">
     <p <%= (defined?(options) && options.include?(:line_clamp)) ? "class=#{options[:line_clamp]}" : "" %>><%= article.description %></p>
   </div>
-  <% if defined?(options) && options.include?(:edit) && options[:edit] %>
+  <% if defined?(options) && options.include?(:links) %>
     <div class="flex-none mb-2 mx-6 text-indigo-600 text-right">
-      <span class="hover:text-indigo-900"><%= link_to 'Edit', edit_article_path(article) %></span> |
-      <span class="hover:text-indigo-900"><%= link_to 'Delete', article_path(article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></span>
-    </div>
-  <% elsif defined?(options) && options.include?(:show) && options[:show] %>
-    <div class="flex-none mb-2 mx-6 text-indigo-600 text-right">
-      <span class="hover:text-indigo-900"><%= link_to 'Show', article_path(article) %></span>
+      <% links = options[:links].reverse %>
+      <% while links.count > 0 %>
+        <% link = links.pop %>
+        <% case link %>
+        <% when :show %>
+          <span class="hover:text-indigo-900"><%= link_to 'Show', article_path(article) %></span>
+        <% when :edit %>
+          <span class="hover:text-indigo-900"><%= link_to 'Edit', edit_article_path(article) %></span>
+        <% when :delete %>
+          <span class="hover:text-indigo-900"><%= link_to 'Delete', article_path(article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></span>
+        <% end %>
+        <%= " | " if links.count > 0 %>
+      <% end %>
     </div>
   <% end %>
 </div>
