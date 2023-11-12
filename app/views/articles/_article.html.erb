@@ -3,21 +3,27 @@
     <div class="px-4 py-3 sm:px-0 text-center text-4xl font-semibold text-slate-800">
       <%= article.title %>
     </div>
-    <div class="text-md pb-1 font-medium text-center text-slate-700">
-      by <%= article.user.username %>
-    </div>
+    <% if article.user != nil %>
+      <div class="text-md pb-1 font-medium text-center text-slate-700">
+        by <%= link_to article.user.username, user_path(article.user) %>
+      </div>
+    <% end %>
     <div class="text-sm pb-2 text-center text-slate-600">
       created <%= time_ago_in_words(article.created_at) %> ago | updated <%= time_ago_in_words(article.updated_at) %> ago
     </div>
     <div class="m-auto max-w-xl border-b border-slate-500"></div>
   </div>
   <div class="flex-1 text-lg p-6 font-medium text-left text-slate-700">
-    <p <%= (defined? line_clamp) ? "class=#{line_clamp}" : "" %>><%= article.description %></p>
+    <p <%= (defined?(options) && options.include?(:line_clamp)) ? "class=#{options[:line_clamp]}" : "" %>><%= article.description %></p>
   </div>
-  <% if (defined? links) && links %>
+  <% if defined?(options) && options.include?(:edit) && options[:edit] %>
     <div class="flex-none mb-2 mx-6 text-indigo-600 text-right">
       <span class="hover:text-indigo-900"><%= link_to 'Edit', edit_article_path(article) %></span> |
       <span class="hover:text-indigo-900"><%= link_to 'Delete', article_path(article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></span>
+    </div>
+  <% elsif defined?(options) && options.include?(:show) && options[:show] %>
+    <div class="flex-none mb-2 mx-6 text-indigo-600 text-right">
+      <span class="hover:text-indigo-900"><%= link_to 'Show', article_path(article) %></span>
     </div>
   <% end %>
 </div>

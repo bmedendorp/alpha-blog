@@ -4,7 +4,7 @@
   </div>
 
   <div class="max-w-4xl m-auto">
-    <%= render 'article', article: @article, links: true %>
+    <%= render 'article', article: @article, options: { edit: true } %>
     <div class="px-0 py-8 text-left text-indigo-600 hover:text-indigo-900">
       <%= link_to '<< Return to articles listing', articles_path %>
     </div>

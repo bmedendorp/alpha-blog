@@ -10,11 +10,9 @@
   </div>
 
   <% @articles.each do |article| %>
-    <a href=<%= article_path article %>>
-      <div class="my-4 max-w-4xl m-auto">
-        <%= render 'article', article: article, line_clamp: "line-clamp-1" %>
-      </div>
-    </a>
+    <div class="my-4 max-w-4xl m-auto">
+      <%= render 'article', article: article, options: { line_clamp: "line-clamp-1", show: true } %>
+    </div>
   <% end %>
 
 </div>

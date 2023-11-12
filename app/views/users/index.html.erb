@@ -13,7 +13,7 @@
           <%= user.username %>
         </div>
         <div class="text-md pb-1 font-medium text-center text-slate-700">
-          <%= user.articles.count %> articles
+          <%= pluralize(user.articles.count, 'article') %>
         </div>
         <div class="m-auto max-w-xl border-b border-slate-500"></div>
       </div>
