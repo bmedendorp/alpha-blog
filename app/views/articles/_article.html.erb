@@ -1,11 +1,20 @@
 <div class="flex flex-col p-4 rounded-3xl shadow-lg bg-slate-400">
   <div class="flex-none">
-    <div class="px-4 py-3 sm:px-0 text-center text-4xl font-semibold text-slate-800">
-      <%= article.title %>
+    <div class="px-4 pt-3 sm:px-0 text-center text-4xl font-semibold text-slate-800">
+      <% if defined?(options) && options.include?(:title_link) && options[:title_link] %>
+        <%= link_to article.title, article_path(article) %>
+      <% else %>
+        <%= article.title %>
+      <% end %>
     </div>
-    <% if article.user != nil %>
-      <div class="text-md pb-1 font-medium text-center text-slate-700">
-        by <%= link_to article.user.username, user_path(article.user) %>
+    <% if article.user %>
+      <div class="flex justify-center items-end pb-1">
+        <div class="m-1">
+          <%= gravatar_for(article.user, size: 30) %>
+        </div>
+        <div class="text-md font-medium text-slate-700 align-text-bottom">
+          by <%= link_to article.user.username, user_path(article.user) %>
+        </div>
       </div>
     <% end %>
     <div class="text-sm pb-2 text-center text-slate-600">
@@ -29,7 +38,7 @@
         <% when :delete %>
           <span class="hover:text-indigo-900"><%= link_to 'Delete', article_path(article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></span>
         <% end %>
-        <%= " | " if links.count > 0 %>
+        <%= "|" if links.count > 0 %>
       <% end %>
     </div>
   <% end %>

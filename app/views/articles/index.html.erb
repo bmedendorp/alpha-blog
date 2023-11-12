@@ -11,7 +11,7 @@
 
   <% @articles.each do |article| %>
     <div class="my-4 max-w-4xl m-auto">
-      <%= render 'article', article: article, options: { line_clamp: "line-clamp-1", links: [:show, :edit, :delete] } %>
+      <%= render 'article', article: article, options: { title_link: true, line_clamp: "line-clamp-1", links: [:show, :edit, :delete] } %>
     </div>
   <% end %>
 
